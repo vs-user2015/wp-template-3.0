@@ -436,6 +436,7 @@ function enqueue_script(){
 	wp_enqueue_script("mobile-navigation",get_stylesheet_directory_uri() . "/js/mobile-navigation.js",array(jquery),"",true);
 	wp_enqueue_script("home-page-carousel",get_stylesheet_directory_uri() . "/js/home-page-carousel.js",array(jquery),"",true);
 	wp_enqueue_script("mobile-contact-form",get_stylesheet_directory_uri() . "/js/mobile-contact-form.js",array(jquery),"",true);
+	wp_enqueue_script("dropdown-contact-form",get_stylesheet_directory_uri() . "/js/dropdown-contact-form.js",array(jquery),"",true);
 }
 
 add_action("wp_enqueue_scripts","enqueue_script");
@@ -459,3 +460,22 @@ function the_slug() {
 	$slug = $post_data['post_name'];
 	return $slug;
 }
+
+/* Deny direct access of author uri */
+add_action('template_redirect','bwp_template_redirect');
+function bwp_template_redirect(){
+	if(is_author()){
+		wp_redirect(home_url());
+		exit;
+	}
+}
+
+/* Prevent error output on wp-admin page */
+add_filter('login_errors',create_function('$a','return null;'));
+
+/* Remove WP generator meta tag completed */
+function remove_generator_tag(){
+	return '';
+}
+
+add_filter('the_generator','remove_generator_tag');

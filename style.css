@@ -127,9 +127,11 @@ body {
 
 /* HEADER */
 #header {
+	background: #fff;
 	box-shadow: 0 20px 20px rgba(0,0,0,0.2);
-	position: relative;
-	z-index: 2
+	position: fixed;
+	width: 100%;
+	z-index: 5
 }
 
 #header_flex {
@@ -232,6 +234,7 @@ body {
 	background: url("images/carousel-bg.jpg") center center #FF7F22;
 	background-size: cover;
 	height: auto;
+	padding: 142px 0 0 0;
 	overflow: hidden
 }
 
@@ -318,7 +321,6 @@ body {
     left: 50%;
     position: relative;
     width: 100px;
-    z-index: 50;
 }
 
 .indicator {
@@ -351,6 +353,7 @@ body {
 #slider_area_interior {
 	background: url("images/cooling-bg.jpg") center center;
 	background-size: cover;
+	padding: 142px 0 0 0
 }
 
 #slider_area_interior .container{
@@ -377,7 +380,48 @@ body {
 /* FORM AREA */
 #form_area {
 	background: #58585a;
-	padding: 20px 0
+	position: relative;
+	height: 115px
+}
+#form_area .container {
+	padding: 15px 0
+}
+
+#dropdown_contact_button {
+	position: fixed;
+	top: 35px;
+	right: 24%;
+	text-align: right;
+	-webkit-transition : 0.3s top ease-in-out;
+	-moz-transition : 0.3s top ease-in-out;
+	-o-transition : 0.3s top ease-in-out;
+	transition : 0.3s top ease-in-out;
+	z-index: 4
+}
+
+#dropdown_contact_button .container{
+	background: #ccc;
+	width: auto;
+	padding: 20px;
+	cursor: pointer
+}
+
+#form_blocking {
+	height: 115px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%
+}
+
+#form_area #form_container {
+	position: absolute;
+	background: #58585A;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 0;
+	
 }
 
 #slideout_number {
@@ -767,7 +811,6 @@ body {
 
 #service_24_7 {
     padding: 100px 0 0;
-    position: relative;
     width: 35%;
     left: 70px;
 }
@@ -1227,6 +1270,14 @@ body {
 	}
 	
 	.desktop-only {
+		display: none
+	}
+	
+	#header {
+		position: static
+	}
+	
+	#dropdown_contact_button {
 		display: none
 	}
 	
