@@ -62,13 +62,6 @@
 				get_template_part("template-parts/slider-blog-index");
 			}
 		?>
-		<div id="form_area">
-			<div class="container">
-				<div id="slideout_number">
-					<p>SCHEDULE SERVICE</p>
-				</div>
-				
-				<!-- CONTACT FORM -->
-				<?php get_template_part("template-parts/form-contact") ; ?>
-			</div>
-		</div>
+		<!-- CONTACT FORM -->
+		<?php get_template_part("template-parts/form-contact") ; ?>
+		
