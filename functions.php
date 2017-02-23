@@ -436,7 +436,7 @@ function enqueue_script(){
 	wp_enqueue_script("mobile-navigation",get_stylesheet_directory_uri() . "/js/mobile-navigation.js",array(jquery),"",true);
 	wp_enqueue_script("home-page-carousel",get_stylesheet_directory_uri() . "/js/home-page-carousel.js",array(jquery),"",true);
 	wp_enqueue_script("mobile-contact-form",get_stylesheet_directory_uri() . "/js/mobile-contact-form.js",array(jquery),"",true);
-	wp_enqueue_script("dropdown-contact-form",get_stylesheet_directory_uri() . "/js/dropdown-contact-form.js",array(jquery),"",true);
+	wp_enqueue_script("sticky-contact-form",get_stylesheet_directory_uri() . "/js/stickyForm.js",array(jquery),"",true);
 }
 
 add_action("wp_enqueue_scripts","enqueue_script");
@@ -479,3 +479,10 @@ function remove_generator_tag(){
 }
 
 add_filter('the_generator','remove_generator_tag');
+
+/* Create shortcode for url to use in WYSIWYG */
+function theme_url(){
+	return get_template_directory_uri();
+}
+
+add_shortcode('theme','theme_url');
